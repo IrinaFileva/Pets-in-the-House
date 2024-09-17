@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 30px;
   padding: 0.5% 2%;
 
   .linkLogo {
@@ -11,7 +12,8 @@
   }
 
   h1 {
-    font-size: 44px;
+    width: 345px;
+    font-size: 2rem;
     text-shadow:
       2px 2px 3px black,
       0 0 3px rgb(10, 10, 10),
@@ -20,9 +22,8 @@
   }
 
   input {
-    width: 270px;
+    width: 250px;
     border: 1px solid var(--mantine-color-dark-3);
-    margin-top: 15px;
     &::placeholder {
       color: var(--mantine-color-dark-3);
     }
@@ -32,10 +33,14 @@
       border-color: var(--mantine-color-grape-filled);
     }
   }
+
+  span {
+    width: 135px;
+  }
 }
 
 .linkMap {
-  font-size: 24px;
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -56,4 +61,23 @@
 .linkMap:hover:after,
 .linkMap:focus:after {
   width: 100%;
+}
+
+@media (max-width: 1300px) {
+  .header {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 595px) {
+  .header {
+    span {
+      display: none;
+    }
+  }
+
+  .linkLogo {
+    flex-direction: column;
+  }
 }

@@ -1,8 +1,7 @@
 'use client';
-import { AppShell, Autocomplete, Burger, Title } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
-import MapSvg from '../../../shared/assets/svg/map.svg';
-import PhoneSvg from '../../../shared/assets/svg/phone.svg';
+import { AppShell, Autocomplete, Title } from '@mantine/core';
+import MapSvg from 'shared/assets/svg/map.svg';
+import PhoneSvg from 'shared/assets/svg/phone.svg';
 import Logo from 'shared/assets/img/Logo.png';
 import styles from './Header.module.scss';
 import Image from 'next/image';
@@ -12,8 +11,6 @@ import Link from 'next/link';
 const largeData = serviceCategories.map((category) => category.name);
 
 export const Header = () => {
-  const [opened, { toggle }] = useDisclosure();
-
   return (
     <AppShell.Header className={styles.header}>
       <Link className={styles.linkLogo} href={'/'}>
@@ -34,7 +31,7 @@ export const Header = () => {
         target="_blank"
       >
         <Image src={MapSvg} alt="map" />
-        Как нас найти
+        <span>Как нас найти</span>
       </Link>
       <Link
         className={styles.linkMap}
@@ -42,9 +39,8 @@ export const Header = () => {
         target="_blank"
       >
         <Image src={PhoneSvg} alt="phone" />
-        Позвонить нам
+        <span>Позвонить нам</span>
       </Link>
-      <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
     </AppShell.Header>
   );
 };
