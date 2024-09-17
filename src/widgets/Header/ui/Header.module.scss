@@ -1,0 +1,59 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5% 2%;
+
+  .linkLogo {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 44px;
+    text-shadow:
+      2px 2px 3px black,
+      0 0 3px rgb(10, 10, 10),
+      0 0 3px rgb(12, 12, 12);
+    color: white;
+  }
+
+  input {
+    width: 270px;
+    border: 1px solid var(--mantine-color-dark-3);
+    margin-top: 15px;
+    &::placeholder {
+      color: var(--mantine-color-dark-3);
+    }
+
+    &:hover,
+    &:focus-within {
+      border-color: var(--mantine-color-grape-filled);
+    }
+  }
+}
+
+.linkMap {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.linkMap:after {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0c0c0c;
+  content: '';
+  transition: width 0.3s ease-out;
+}
+
+.linkMap:hover:after,
+.linkMap:focus:after {
+  width: 100%;
+}
