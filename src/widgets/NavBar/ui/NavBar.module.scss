@@ -1,0 +1,41 @@
+.navBar {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  border-top: 1px solid grey;
+}
+
+.tabs {
+  display: flex;
+}
+
+.tabsList {
+  &::before {
+    display: none;
+  }
+}
+
+.tab {
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: center;
+  height: rem(38);
+  margin-bottom: -1px;
+}
+
+.linksMenu:hover {
+  padding-bottom: -1px;
+}
+
+.links {
+  margin-bottom: -1px;
+  z-index: 15;
+  text-align: center;
+}
+
+.linksLabel {
+  display: flex;
+  justify-content: center;
+}
