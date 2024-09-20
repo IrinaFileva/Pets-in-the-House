@@ -1,7 +1,8 @@
 import '@mantine/core/styles.css';
 import './globals.scss';
-import { AppShell, ColorSchemeScript, MantineProvider } from '@mantine/core';
+import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { Header } from 'widgets/Header/ui/Header';
+import { NavBar } from 'widgets/NavBar';
 
 export const metadata = {
   title: 'Любимцы в доме',
@@ -21,16 +22,10 @@ export default function RootLayout({
       </head>
       <body>
         <MantineProvider>
-          <AppShell
-            navbar={{
-              width: 300,
-              breakpoint: 'sm',
-            }}
-            padding="md"
-          >
-            <Header />
-            {children}
-          </AppShell>
+          <Header>
+            <NavBar />
+          </Header>
+          {children}
         </MantineProvider>
       </body>
     </html>

@@ -1,15 +1,12 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-html,
-body {
-  max-width: 100vw;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-  width: 80%;
+  width: 90%;
+  height: 100vh;
   margin: auto;
   color: var(--foreground);
   background-image: url('./../shared/assets/img/bg.png') !important;
@@ -19,17 +16,21 @@ body {
   background: var(--background);
   backdrop-filter: blur(1px) !important;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 10px;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
 }
 
 a {
-  position: relative;
   color: inherit;
   text-decoration: none;
+}
+
+.plug {
+  height: 74%;
+  border: 1px solid grey;
+  border-radius: 4px;
+  text-align: center;
+  margin: auto;
+  padding: 10%;
+  color: black;
+  font-size: 24px;
+  background-color: rgb(255, 255, 255, 0.5);
 }
