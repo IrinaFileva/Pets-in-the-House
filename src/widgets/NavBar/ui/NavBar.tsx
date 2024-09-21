@@ -50,7 +50,7 @@ export const NavBar = () => {
           })}
         </Tabs>
       </Container>
-      <Menu>
+      <Menu closeOnClickOutside={false}>
         <Menu.Target>
           <Burger opened={opened} onClick={toggle} hiddenFrom="md" size="sm" />
         </Menu.Target>
