@@ -3,6 +3,7 @@ import './globals.scss';
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { Header } from 'widgets/Header/ui/Header';
 import { NavBar } from 'widgets/NavBar';
+import { Footer } from 'widgets/Footer';
 
 export const metadata = {
   title: 'Любимцы в доме',
@@ -26,6 +27,7 @@ export default function RootLayout({
             <NavBar />
           </Header>
           {children}
+          <Footer />
         </MantineProvider>
       </body>
     </html>

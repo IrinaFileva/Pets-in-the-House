@@ -1,0 +1,49 @@
+.footer {
+  width: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 95px;
+  margin: 0 auto;
+  padding: 0 3%;
+
+  a:hover {
+    color: #82c91e;
+  }
+}
+
+.listContacts {
+  font-size: 12px !important;
+}
+
+.listSocial {
+  max-width: 235px;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  gap: 15px;
+
+  img:hover {
+    border-radius: 100%;
+    border: 2px solid black;
+  }
+}
+
+@media (max-width: 895px) {
+  .footer {
+    width: 100%;
+    padding: 0;
+  }
+  .listSocial {
+    max-width: fit-content;
+  }
+}
+
+@media (max-width: 630px) {
+  .footer {
+    padding: 2% 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+}
