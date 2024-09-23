@@ -9,6 +9,7 @@ import Telega from 'shared/assets/svg/telegram.svg';
 import Clock from 'shared/assets/svg/clock.svg';
 import VK from 'shared/assets/svg/vk.svg';
 import styles from './ContactsList.module.scss';
+import { OUTSIDE_LINKS } from 'shared/constants';
 
 const breadCrumbsItem = [
   { title: 'Главная', href: '/' },
@@ -23,7 +24,7 @@ export const ContactsList = () => {
   return (
     <main className={styles.contactsSection}>
       <section className={styles.contacts}>
-        <h2>Контакты</h2>
+        <h2>{'Контакты'}</h2>
         <Breadcrumbs className={styles.breadcrumbs}>
           {breadCrumbsItem}
         </Breadcrumbs>
@@ -70,17 +71,12 @@ export const ContactsList = () => {
             }}
           >
             <List.Item icon={<span />}>
-              <Link href={'tel:+79603938390'} target="_blank">
+              <Link href={OUTSIDE_LINKS.tel} target="_blank">
                 {' +7‒960‒393‒83‒90'}
               </Link>
             </List.Item>
             <List.Item icon={<span />}>
-              <Link
-                href={
-                  'https://yandex.ru/maps/org/lyubimtsy_v_dome/132929888489/?ll=56.047131%2C54.785060&rl=56.046959%2C54.786275~0.000257%2C0.001339&rlt=area&z=14'
-                }
-                target="_blank"
-              >
+              <Link href={OUTSIDE_LINKS.map} target="_blank">
                 {' г. Уфа Уфимское шоссе, 25'}
               </Link>
             </List.Item>
@@ -90,7 +86,7 @@ export const ContactsList = () => {
             <List.Item icon={<span />}>
               <Link
                 className={styles.linkVk}
-                href={'https://vk.com/lyubimtsyvdome'}
+                href={OUTSIDE_LINKS.vk}
                 target="_blank"
               >
                 {' Любимцы в Доме'}
@@ -99,7 +95,7 @@ export const ContactsList = () => {
             <List.Item icon={<span />}>
               <Link
                 className={styles.linkVk}
-                href={'https://t.me/lyubimtsyvdome'}
+                href={OUTSIDE_LINKS.telegram}
                 target="_blank"
               >
                 {' @lyubimtsyvdome'}
