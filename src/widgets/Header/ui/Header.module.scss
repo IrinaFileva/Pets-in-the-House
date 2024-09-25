@@ -31,14 +31,14 @@
     flex-direction: column;
     gap: 10px;
     font-size: 1.1rem;
-    justify-content: end;
+    justify-content: flex-end;
   }
 
   .titleContact {
     display: flex;
     gap: 10px;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
     padding-right: 30px;
   }
 
@@ -67,7 +67,18 @@
   }
 }
 
+@media (max-width: 540px) {
+  .rootLinks span {
+    display: none;
+  }
+}
+
 @media (max-width: 490px) {
+  .header {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 10px;
+  }
   .linkLogo {
     flex-direction: column;
 
@@ -76,9 +87,7 @@
       font-size: 1.6rem;
     }
   }
-  .rootLinks span {
-    display: none;
-  }
+
   .titleContact {
     padding-right: 0 !important;
   }
