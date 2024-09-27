@@ -23,6 +23,20 @@ a {
   text-decoration: none;
 }
 
+.notFound {
+  height: 70%;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 30px;
+
+  div {
+    margin-top: 5%;
+    text-align: center;
+  }
+}
+
 .plug {
   height: 74%;
   border: 1px solid grey;
