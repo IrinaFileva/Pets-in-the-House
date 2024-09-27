@@ -9,7 +9,7 @@ import styles from './NavBar.module.scss';
 
 export const NavBar = () => {
   const path = usePathname();
-  const activePath = path as keyof typeof Paths;
+  const activePath = `/${path.split('/')[1]}` as keyof typeof Paths;
   const paths = Paths[activePath];
   const [opened, { toggle }] = useDisclosure(false);
   const [active, setActive] = useState(paths);
