@@ -61,7 +61,7 @@ export const SERVICES_CATEGORIES: Service[] = [
   {
     name: 'Интенсивная терапия, стационар',
     image: IntensiveCare,
-    url: 'intensivnaya-terapiya-i-reanimatciya',
+    url: 'intensivnaya-terapiya-statcionar',
   },
   {
     name: 'Уход и гигиена',

@@ -1,0 +1,105 @@
+.servicePriceList {
+  max-width: 50%;
+  min-height: 73vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 2% 3%;
+  padding-bottom: 0.9%;
+  border: 1px solid grey;
+  border-radius: 4px;
+  margin: 0 auto;
+  background-color: rgb(255, 255, 255, 0.8);
+
+  img {
+    margin: 20px auto 0;
+    border-radius: 4px;
+    border: 1px solid grey;
+    object-fit: cover;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  h3 {
+    text-align: center;
+    font-size: 16px;
+    color: grey;
+    margin-bottom: 20px;
+  }
+
+  .list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .wrapperItem {
+    border-bottom: 1px dotted grey;
+  }
+
+  .wrapperItem,
+  .listItem,
+  .listLabelItem {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    justify-content: space-between;
+  }
+
+  .additionalList {
+    flex-grow: 1;
+  }
+
+  .additionalWrapperItem {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .icon {
+    display: none;
+  }
+
+  .titleService {
+    font-weight: 600;
+  }
+}
+
+.breadcrumbs {
+  margin-bottom: 30px;
+  a {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1275px) {
+  .servicePriceList {
+    max-width: 85%;
+  }
+}
+
+@media (max-width: 590px) {
+  .servicePriceList {
+    max-width: 100%;
+
+    span {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .servicePriceList {
+    .listLabelItem {
+      gap: 0;
+    }
+
+    span {
+      font-size: 12px;
+    }
+  }
+}

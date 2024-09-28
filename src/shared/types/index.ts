@@ -1,3 +1,3 @@
 export { Paths } from './routing';
 
-export type { Service } from './services';
+export type { Service, ServicePriceList, MultiplePrices } from './services';
