@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { SERVICES_CATEGORIES } from 'shared/constants';
 import { getPriceList } from 'shared/lip';
-import { Service, ServicePriceList } from 'shared/types';
+import { PriceList, Service } from 'shared/types';
 import { ServiceList } from 'widgets/ServicePriceList';
 
 export default async function ServicesPage({
@@ -9,12 +9,15 @@ export default async function ServicesPage({
 }: {
   params: { services: string };
 }) {
-  const { services } = params;
+  const service = params.services as keyof PriceList;
+  const priseList: PriceList | undefined = await getPriceList();
 
-  if (SERVICES_CATEGORIES.some((ser: Service) => ser.url === services)) {
-    const priseList: ServicePriceList[] = await getPriceList(services);
-
-    return <ServiceList nameService={services} service={priseList} />;
+  if (SERVICES_CATEGORIES.some((ser: Service) => ser.url === service)) {
+    return (
+      priseList && (
+        <ServiceList nameService={service} service={priseList[service]} />
+      )
+    );
   } else {
     notFound();
   }

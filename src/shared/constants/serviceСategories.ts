@@ -26,12 +26,12 @@ export const SERVICES_CATEGORIES: Service[] = [
   {
     name: 'Лабораторная диагностика',
     image: Laboratory,
-    url: 'laboratornaya-diagnostika',
+    url: 'laboratornaya_diagnostika',
   },
   {
     name: 'Визуальная диагностика (УЗИ)',
     image: Ultrasound,
-    url: 'vizualnaya-diagnostika',
+    url: 'vizualnaya_diagnostika',
   },
   {
     name: 'Вакцинация',
@@ -41,7 +41,7 @@ export const SERVICES_CATEGORIES: Service[] = [
   {
     name: 'Кастрация и стерилизация',
     image: Castration,
-    url: 'kastratciya-i-sterilizatciya',
+    url: 'kastratciya_i_sterilizatciya',
   },
   {
     name: 'Хирургия',
@@ -51,7 +51,7 @@ export const SERVICES_CATEGORIES: Service[] = [
   {
     name: 'Гинекология и родовспоможение',
     image: Obstetrics,
-    url: 'ginekologiya-i-rodovspomozhehie',
+    url: 'ginekologiya_i_rodovspomozhehie',
   },
   {
     name: 'Стоматология',
@@ -61,16 +61,16 @@ export const SERVICES_CATEGORIES: Service[] = [
   {
     name: 'Интенсивная терапия, стационар',
     image: IntensiveCare,
-    url: 'intensivnaya-terapiya-statcionar',
+    url: 'intensivnaya_terapiya_statcionar',
   },
   {
     name: 'Уход и гигиена',
     image: HygieneCare,
-    url: 'ukhod-i-gigiena',
+    url: 'ukhod_i_gigiena',
   },
   {
     name: 'Прочие услуги',
     image: OtherServices,
-    url: 'prothie-uslugi',
+    url: 'prothie_uslugi',
   },
 ];

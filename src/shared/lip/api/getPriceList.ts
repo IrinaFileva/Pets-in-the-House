@@ -1,20 +1,15 @@
 import axios from 'axios';
-import { ServicePriceList } from 'shared/types';
+import { PriceList } from 'shared/types';
 
-export async function getPriceList(path: string): Promise<ServicePriceList[]> {
-  const res = await axios.get(
-    'https://api.jsonbin.io/v3/b/66f67396acd3cb34a88cf381/latest',
-    {
-      headers: {
-        'X-Master-Key':
-          '$2a$10$.Q5OSQIzFJYs3WqiftXPk.WZelLiEp6.v0CnQd.UC/Wtvm7nbs9Za',
-      },
-    }
-  );
+const TOKEN = process.env.TOKEN_PRICE_LIST;
+const X_MASTER_KEY = process.env.X_MASTER_KEY;
 
-  const json = res.data.record;
+export async function getPriceList(): Promise<PriceList> {
+  const res = await axios.get(`https://api.jsonbin.io/v3/b/${TOKEN}/latest`, {
+    headers: { 'X-Master-Key': X_MASTER_KEY },
+  });
 
-  const result: ServicePriceList[] = JSON.parse(JSON.stringify(json))[path];
+  const json: PriceList = res.data.record;
 
-  return result;
+  return json;
 }
