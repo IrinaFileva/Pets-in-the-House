@@ -31,3 +31,11 @@ export interface PriceList {
   ukhod_i_gigiena: ServicePriceList[];
   prothie_uslugi: ServicePriceList[];
 }
+
+export interface PropsValues {
+  category?: keyof PriceList;
+  service?: string;
+  price?: string | MultiplePrices[];
+  title?: string;
+  cost?: string;
+}

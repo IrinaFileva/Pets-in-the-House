@@ -5,4 +5,5 @@ export type {
   ServicePriceList,
   MultiplePrices,
   PriceList,
+  PropsValues,
 } from './services';
