@@ -9,9 +9,16 @@ import { ChangePriceForm } from 'features/changePriceOfService';
 interface PropsAdminForm {
   priceList: PriceList;
   keyAdmin: string | undefined;
+  TOKEN: string | undefined;
+  X_MASTER_KEY: string | undefined;
 }
 
-export const AdminForm: FC<PropsAdminForm> = ({ priceList, keyAdmin }) => {
+export const AdminForm: FC<PropsAdminForm> = ({
+  priceList,
+  keyAdmin,
+  TOKEN,
+  X_MASTER_KEY,
+}) => {
   const [isLogin, setLogin] = useState(false);
 
   const formLogin = useForm({
@@ -44,7 +51,11 @@ export const AdminForm: FC<PropsAdminForm> = ({ priceList, keyAdmin }) => {
 
   return (
     <main className={styles.mainAdmin}>
-      <ChangePriceForm priceList={priceList} />
+      <ChangePriceForm
+        priceList={priceList}
+        TOKEN={TOKEN}
+        X_MASTER_KEY={X_MASTER_KEY}
+      />
     </main>
   );
 };

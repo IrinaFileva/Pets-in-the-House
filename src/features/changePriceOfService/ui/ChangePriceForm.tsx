@@ -1,19 +1,32 @@
-import { FC, useState } from 'react';
+import { FC, FormEvent, useState } from 'react';
 import { PriceList, PropsValues } from 'shared/types';
 import { Button, Select, TextInput } from '@mantine/core';
 import styles from './ChangePriceForm.module.scss';
+import { changePriceList } from 'shared/lip';
 
 interface PropsChangeProps {
   priceList: PriceList;
+  TOKEN: string | undefined;
+  X_MASTER_KEY: string | undefined;
 }
 
-export const ChangePriceForm: FC<PropsChangeProps> = ({ priceList }) => {
+export const ChangePriceForm: FC<PropsChangeProps> = ({
+  priceList,
+  TOKEN,
+  X_MASTER_KEY,
+}) => {
   const services: string[] = Object.keys(priceList);
-  const [values, setValueS] = useState<PropsValues | null>(null);
+  const [values, setValues] = useState<PropsValues | null>(null);
+
+  const handleForm = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    await changePriceList({ priceList, values, TOKEN, X_MASTER_KEY });
+    setValues(null);
+  };
 
   return (
     <div className={styles.formPriceList}>
-      <form>
+      <form onSubmit={handleForm}>
         {'Прайс Лист'}
         <Select
           value={values?.category}
@@ -21,7 +34,7 @@ export const ChangePriceForm: FC<PropsChangeProps> = ({ priceList }) => {
           data={services}
           onChange={(value) => {
             const newValue = value as keyof PriceList;
-            setValueS({
+            setValues({
               category: newValue,
               service: priceList[newValue][0].name,
               price: priceList[newValue][0].price,
@@ -37,7 +50,7 @@ export const ChangePriceForm: FC<PropsChangeProps> = ({ priceList }) => {
             data={priceList[values.category].map((val) => val.name)}
             onChange={(value) => {
               if (value)
-                setValueS({
+                setValues({
                   ...values,
                   service: value,
                   price: values.category
@@ -54,7 +67,7 @@ export const ChangePriceForm: FC<PropsChangeProps> = ({ priceList }) => {
             label={'Цена'}
             value={values?.price}
             onChange={(ev) =>
-              setValueS({
+              setValues({
                 ...values,
                 price: ev.currentTarget.value,
               })
@@ -69,7 +82,7 @@ export const ChangePriceForm: FC<PropsChangeProps> = ({ priceList }) => {
               data={values.price.map((val) => val.title)}
               onChange={(value) => {
                 if (value)
-                  setValueS({
+                  setValues({
                     ...values,
                     title: value,
                     cost:
@@ -84,7 +97,7 @@ export const ChangePriceForm: FC<PropsChangeProps> = ({ priceList }) => {
                 label={'Цена'}
                 value={values.cost}
                 onChange={(ev) =>
-                  setValueS({
+                  setValues({
                     ...values,
                     cost: ev.currentTarget.value,
                   })
