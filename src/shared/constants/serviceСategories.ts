@@ -1,16 +1,16 @@
 import { Service } from 'shared/types';
-import Appointment from 'shared/assets/img/appointment.jpg';
-import OtherServices from 'shared/assets/img/otherServices.jpg';
-import Laboratory from 'shared/assets/img/laboratory.jpg';
-import Ultrasound from 'shared/assets/img/ultrasound.jpg';
-import Surgery from 'shared/assets/img/surgery.jpg';
-import Obstetrics from 'shared/assets/img/obstetrics.jpg';
-import Dentistry from 'shared/assets/img/dentistry.webp';
-import HygieneCare from 'shared/assets/img/hygieneCare.jpg';
-import Vaccination from 'shared/assets/img/vaccination.jpg';
-import Therapy from 'shared/assets/img/therapy.webp';
-import Castration from 'shared/assets/img/sterilization.jpg';
-import IntensiveCare from 'shared/assets/img/intensiveCare.jpg';
+import Appointment from 'shared/assets/img/services/appointment.jpg';
+import OtherServices from 'shared/assets/img/services/otherServices.jpg';
+import Laboratory from 'shared/assets/img/services/laboratory.jpg';
+import Ultrasound from 'shared/assets/img/services/ultrasound.jpg';
+import Surgery from 'shared/assets/img/services/surgery.jpg';
+import Obstetrics from 'shared/assets/img/services/obstetrics.jpg';
+import Dentistry from 'shared/assets/img/services/dentistry.webp';
+import HygieneCare from 'shared/assets/img/services/hygieneCare.jpg';
+import Vaccination from 'shared/assets/img/services/vaccination.jpg';
+import Therapy from 'shared/assets/img/services/therapy.webp';
+import Castration from 'shared/assets/img/services/sterilization.jpg';
+import IntensiveCare from 'shared/assets/img/services/intensiveCare.jpg';
 
 export const SERVICES_CATEGORIES: Service[] = [
   {
