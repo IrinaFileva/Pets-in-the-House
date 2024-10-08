@@ -19,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <head>
+        <meta name="yandex-verification" content="378e280dfcb217d9" />
         <ColorSchemeScript />
       </head>
       <body>
