@@ -54,7 +54,7 @@ export const NavBar = () => {
         <Menu.Target>
           <Burger opened={opened} onClick={toggle} hiddenFrom="md" size="sm" />
         </Menu.Target>
-        <Menu.Dropdown>
+        <Menu.Dropdown hiddenFrom="md">
           {KEY_PAGES.map((tab, index) => {
             return (
               <NavLink
