@@ -4,6 +4,7 @@ export interface Service {
   name: string;
   image: StaticImageData;
   url: string;
+  icon?: StaticImageData;
 }
 
 export interface ServicePriceList {
