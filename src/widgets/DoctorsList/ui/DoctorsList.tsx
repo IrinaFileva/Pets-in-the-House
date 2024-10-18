@@ -1,25 +1,13 @@
-import { Box, Group, Title, Text, Image, Breadcrumbs } from '@mantine/core';
+import { Box, Group, Title, Text, Image } from '@mantine/core';
 import NextImage from 'next/image';
 import styles from './DoctorsList.module.scss';
 import { DOCTORS } from 'shared/constants';
-import Link from 'next/link';
-
-const breadCrumbsItem = [
-  { title: 'Главная', href: '/' },
-  { title: 'Наши Врачи', href: '#' },
-].map((item, index) => (
-  <Link href={item.href} key={index}>
-    {item.title}
-  </Link>
-));
+import { HeaderPage } from 'shared/ui/HeaderPage';
 
 export const DoctorsList = () => {
   return (
     <main className={styles.doctorsSection}>
-      <h2>{'Наши Врачи'}</h2>
-      <Breadcrumbs className={styles.breadcrumbs}>
-        {breadCrumbsItem}
-      </Breadcrumbs>
+      <HeaderPage titlePage="Наши врачи" />
       {DOCTORS.map((doc, index) => {
         return (
           <Group

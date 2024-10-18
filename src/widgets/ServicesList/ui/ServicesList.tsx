@@ -1,29 +1,16 @@
 'use client';
-import { Breadcrumbs, Button, Card } from '@mantine/core';
+import { Button, Card } from '@mantine/core';
 import { SERVICES_CATEGORIES } from 'shared/constants';
+import { HeaderPage } from 'shared/ui/HeaderPage';
 import { Service } from 'shared/types';
 import Image from 'next/image';
 import styles from './ServicesList.module.scss';
 import Link from 'next/link';
 
-const breadCrumbsItem = [
-  { title: 'Главная', href: '/' },
-  { title: 'Услуги', href: '#' },
-].map((item, index) => (
-  <Link href={item.href} key={index}>
-    {item.title}
-  </Link>
-));
-
 export const ServicesList = () => {
   return (
     <main className={styles.servicesSection}>
-      <div className={styles.titleSection}>
-        <h2>{'Услуги'} </h2>
-        <Breadcrumbs className={styles.breadcrumbs}>
-          {breadCrumbsItem}
-        </Breadcrumbs>
-      </div>
+      <HeaderPage titlePage="Услуги" />
       <section className={styles.servicesList}>
         {SERVICES_CATEGORIES.map((service: Service, index: number) => {
           return (

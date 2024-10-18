@@ -1,33 +1,22 @@
 'use client';
+import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
+import { Container, List } from '@mantine/core';
+import { OUTSIDE_LINKS } from 'shared/constants';
+import { HeaderPage } from 'shared/ui/HeaderPage';
 import Link from 'next/link';
 import Image from 'next/image';
-import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
-import { Breadcrumbs, Container, List } from '@mantine/core';
 import Phone from 'shared/assets/svg/phone.svg';
 import Address from 'shared/assets/svg/map.svg';
 import Telega from 'shared/assets/svg/telegram.svg';
 import Clock from 'shared/assets/svg/clock.svg';
 import VK from 'shared/assets/svg/vk.svg';
 import styles from './ContactsList.module.scss';
-import { OUTSIDE_LINKS } from 'shared/constants';
-
-const breadCrumbsItem = [
-  { title: 'Главная', href: '/' },
-  { title: 'Контакты', href: '#' },
-].map((item, index) => (
-  <Link href={item.href} key={index}>
-    {item.title}
-  </Link>
-));
 
 export const ContactsList = () => {
   return (
     <main className={styles.contactsSection}>
       <section className={styles.contacts}>
-        <h2>{'Контакты'}</h2>
-        <Breadcrumbs className={styles.breadcrumbs}>
-          {breadCrumbsItem}
-        </Breadcrumbs>
+        <HeaderPage titlePage="Контакты" />
         <Container className={styles.containerLists}>
           <List
             classNames={{
@@ -81,7 +70,9 @@ export const ContactsList = () => {
               </Link>
             </List.Item>
             <List.Item icon={<span />}>
-              <p className={styles.clockTitle}>Ежедневно, с 10:00 до 21:00</p>
+              <p className={styles.clockTitle}>
+                {'Ежедневно, с 10:00 до 21:00'}
+              </p>
             </List.Item>
             <List.Item icon={<span />}>
               <Link

@@ -1,9 +1,9 @@
 'use client';
-import { FC } from 'react';
-import { Breadcrumbs, List } from '@mantine/core';
 import { Service, ServicePriceList } from 'shared/types';
 import { SERVICES_CATEGORIES } from 'shared/constants';
-import Link from 'next/link';
+import { HeaderPage } from 'shared/ui/HeaderPage';
+import { List } from '@mantine/core';
+import { FC } from 'react';
 import Image from 'next/image';
 import styles from './ServicePriceList.module.scss';
 
@@ -16,22 +16,10 @@ export const ServiceList: FC<PropsServiceList> = ({ nameService, service }) => {
   const category: Service = SERVICES_CATEGORIES.filter(
     (category: Service) => category.url === nameService
   )[0];
-  const breadCrumbsItem = [
-    { title: 'Главная', href: '/' },
-    { title: 'Услуги', href: '/services' },
-    { title: `${category.name}`, href: '#' },
-  ].map((item, index) => (
-    <Link href={item.href} key={index}>
-      {item.title}
-    </Link>
-  ));
 
   return (
     <main className={styles.servicePriceList}>
-      <h2>{category.name} </h2>
-      <Breadcrumbs className={styles.breadcrumbs}>
-        {breadCrumbsItem}
-      </Breadcrumbs>
+      <HeaderPage titlePage="Услуги" extraPage={category.name} />
       {service[0].precondition && <h3>{service[0].precondition}</h3>}
       <List
         classNames={{
