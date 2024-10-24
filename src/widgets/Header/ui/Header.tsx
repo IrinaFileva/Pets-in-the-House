@@ -15,7 +15,7 @@ export const Header: FC<ProsHeader> = ({ children }) => {
   return (
     <header className={styles.header}>
       <Link className={styles.linkLogo} href={'/'}>
-        <Image src={Logo} alt="Logo" width={90} height={95} priority />
+        <Image src={Logo} alt="Logo" width={75} height={90} priority />
         <Title>{'« Любимцы в доме »'}</Title>
       </Link>
       <Container className={styles.rootLinks}>
