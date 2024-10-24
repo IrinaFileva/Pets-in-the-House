@@ -40,3 +40,9 @@ export interface PropsValues {
   title?: string;
   cost?: string;
 }
+
+export interface PropsPriceAdminForm {
+  priceList: PriceList;
+  TOKEN: string | undefined;
+  X_MASTER_KEY: string | undefined;
+}

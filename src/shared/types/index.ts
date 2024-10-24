@@ -6,4 +6,5 @@ export type {
   MultiplePrices,
   PriceList,
   PropsValues,
+  PropsPriceAdminForm,
 } from './services';

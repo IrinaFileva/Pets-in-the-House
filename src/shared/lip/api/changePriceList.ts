@@ -1,30 +1,35 @@
 import axios from 'axios';
-import { PriceList, PropsValues } from 'shared/types';
+import {
+  MultiplePrices,
+  PriceList,
+  PropsValues,
+  ServicePriceList,
+} from 'shared/types';
 
-export async function changePriceList({
-  priceList,
-  values,
-  TOKEN,
-  X_MASTER_KEY,
-}: {
-  priceList: PriceList;
-  values: PropsValues | null;
-  TOKEN: string | undefined;
-  X_MASTER_KEY: string | undefined;
-}) {
-  if (values && values.category) {
-    if (typeof values.price === 'string') {
-      priceList[values.category].filter(
-        (item) => item.name === values.service
-      )[0].price = values.price;
-    }
-    if (Array.isArray(values.price)) {
-      const price = priceList[values.category].filter(
-        (item) => item.name === values.service
-      )[0].price;
-      if (Array.isArray(price) && values.cost) {
-        price.filter((item) => item.title === values.title)[0].cost =
-          values.cost;
+export async function changePriceList(
+  priceList: PriceList,
+  values: PropsValues | null,
+  TOKEN: string | undefined,
+  X_MASTER_KEY: string | undefined
+): Promise<void> {
+  if (values) {
+    const { category, service, price, title, cost } = values;
+
+    const workCategory: ServicePriceList[] | undefined = category
+      ? priceList[category]
+      : undefined;
+
+    if (workCategory && price) {
+      if (typeof price === 'string') {
+        workCategory.filter((item) => item.name === service)[0].price = price;
+      }
+      if (Array.isArray(price)) {
+        const price: string | MultiplePrices[] = workCategory.filter(
+          (item) => item.name === service
+        )[0].price;
+        if (Array.isArray(price) && cost) {
+          price.filter((item) => item.title === title)[0].cost = cost;
+        }
       }
     }
   }

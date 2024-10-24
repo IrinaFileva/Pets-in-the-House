@@ -1,16 +1,13 @@
 'use client';
-import { FC, useState } from 'react';
-import { Button, TextInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import styles from './AdminForm.module.scss';
-import { PriceList } from 'shared/types';
+import { PropsPriceAdminForm } from 'shared/types';
+import { FC, useState } from 'react';
 import { ChangePriceForm } from 'features/changePriceOfService';
+import { Button, Group, Radio, TextInput } from '@mantine/core';
+import styles from './AdminForm.module.scss';
 
-interface PropsAdminForm {
-  priceList: PriceList;
+interface PropsAdminForm extends PropsPriceAdminForm {
   keyAdmin: string | undefined;
-  TOKEN: string | undefined;
-  X_MASTER_KEY: string | undefined;
 }
 
 export const AdminForm: FC<PropsAdminForm> = ({
@@ -20,6 +17,7 @@ export const AdminForm: FC<PropsAdminForm> = ({
   X_MASTER_KEY,
 }) => {
   const [isLogin, setLogin] = useState(false);
+  const [value, setValue] = useState<string>('Изменить');
 
   const formLogin = useForm({
     mode: 'uncontrolled',
@@ -51,11 +49,23 @@ export const AdminForm: FC<PropsAdminForm> = ({
 
   return (
     <main className={styles.mainAdmin}>
-      <ChangePriceForm
-        priceList={priceList}
-        TOKEN={TOKEN}
-        X_MASTER_KEY={X_MASTER_KEY}
-      />
+      <div className={styles.formPriceList}>
+        {'Прайс Лист'}
+        <Radio.Group m={'5% auto'} value={value} onChange={setValue}>
+          <Group mt="xs">
+            <Radio value="Изменить" label="Изменить" />
+            <Radio value="Удалить" label="Удалить" />
+            <Radio value="Добавить" label="Добавить" />
+          </Group>
+        </Radio.Group>
+        {value === 'Изменить' && (
+          <ChangePriceForm
+            priceList={priceList}
+            TOKEN={TOKEN}
+            X_MASTER_KEY={X_MASTER_KEY}
+          />
+        )}
+      </div>
     </main>
   );
 };
