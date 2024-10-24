@@ -4,6 +4,7 @@ import { PropsPriceAdminForm } from 'shared/types';
 import { FC, useState } from 'react';
 import { ChangePriceForm } from 'features/changePriceOfService';
 import { RemoveItemPriceForm } from 'features/removeItemPriceOfService';
+import { AddItemPriceForm } from 'features/addItemPriceOfService';
 import { Button, Group, Radio, TextInput } from '@mantine/core';
 import styles from './AdminForm.module.scss';
 
@@ -51,7 +52,7 @@ export const AdminForm: FC<PropsAdminForm> = ({
   return (
     <main className={styles.mainAdmin}>
       <div className={styles.formPriceList}>
-        {'Прайс Лист'}
+        {'Прайс Лист ₽'}
         <Radio.Group m={'5% auto'} value={value} onChange={setValue}>
           <Group mt="xs">
             <Radio value="Изменить" label="Изменить" />
@@ -68,6 +69,13 @@ export const AdminForm: FC<PropsAdminForm> = ({
         )}
         {value === 'Удалить' && (
           <RemoveItemPriceForm
+            priceList={priceList}
+            TOKEN={TOKEN}
+            X_MASTER_KEY={X_MASTER_KEY}
+          />
+        )}
+        {value === 'Добавить' && (
+          <AddItemPriceForm
             priceList={priceList}
             TOKEN={TOKEN}
             X_MASTER_KEY={X_MASTER_KEY}

@@ -39,6 +39,7 @@ export interface PropsValues {
   price?: string | MultiplePrices[];
   title?: string;
   cost?: string;
+  position?: string;
 }
 
 export interface PropsPriceAdminForm {

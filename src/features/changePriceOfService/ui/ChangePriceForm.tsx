@@ -19,7 +19,6 @@ export const ChangePriceForm: FC<PropsPriceAdminForm> = ({
 
   return (
     <form onSubmit={handleForm}>
-      {'Прайс Лист'}
       <Select
         value={values?.category}
         label={'Категория'}
