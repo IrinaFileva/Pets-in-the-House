@@ -3,6 +3,7 @@ import { useForm } from '@mantine/form';
 import { PropsPriceAdminForm } from 'shared/types';
 import { FC, useState } from 'react';
 import { ChangePriceForm } from 'features/changePriceOfService';
+import { RemoveItemPriceForm } from 'features/removeItemPriceOfService';
 import { Button, Group, Radio, TextInput } from '@mantine/core';
 import styles from './AdminForm.module.scss';
 
@@ -60,6 +61,13 @@ export const AdminForm: FC<PropsAdminForm> = ({
         </Radio.Group>
         {value === 'Изменить' && (
           <ChangePriceForm
+            priceList={priceList}
+            TOKEN={TOKEN}
+            X_MASTER_KEY={X_MASTER_KEY}
+          />
+        )}
+        {value === 'Удалить' && (
+          <RemoveItemPriceForm
             priceList={priceList}
             TOKEN={TOKEN}
             X_MASTER_KEY={X_MASTER_KEY}
